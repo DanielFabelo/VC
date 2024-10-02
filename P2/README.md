@@ -57,7 +57,7 @@ Se inicializa la captura de video utilizando cv2.VideoCapture(0), que permite ac
 Cada frame se convierte a escala de grises utilizando cv2.cvtColor, lo que simplifica el proceso de detección de caras.
  Para cada cara detectada, se aplica un efecto de pixelado. Se extrae la región de interés (ROI) de la cara y se reduce su tamaño a 16x16 píxeles, lo que genera un efecto pixelado. Luego, se vuelve a escalar la imagen pixelada al tamaño original de la cara usando interpolación de vecino más cercano (cv2.INTER_NEAREST).
 El resultado, que muestra el video con las caras pixeladas, se muestra en una ventana utilizando cv2.imshow
-El bucle se mantiene activo hasta que se presiona la tecla 'q', momento en el cual se liberan los recursos utilizados y se cierran las ventanas
+El bucle se mantiene activo hasta que se presiona la tecla 'ESC', momento en el cual se liberan los recursos utilizados y se cierran las ventanas
 
 # Referencias y Fuentes Utilizadas
 El código base utilizado en el desarrollo de las tareas fue proporcionado a través del Moodle de la asignatura Visión por Computador. Este código sirvió como punto de partida para implementar las soluciones propuestas en las distintas tareas.
