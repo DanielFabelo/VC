@@ -61,6 +61,6 @@ El bucle se mantiene activo hasta que se presiona la tecla 'ESC', momento en el 
 
 # Referencias y Fuentes Utilizadas
 El código base utilizado en el desarrollo de las tareas fue proporcionado a través del Moodle de la asignatura Visión por Computador. Este código sirvió como punto de partida para implementar las soluciones propuestas en las distintas tareas.
-
+Las imágenes utilizadas fueron sacadas de dos fuentes. La imagen del Mandril fue proporcionada por el profesor mientras que la imagen de la mariposa fue obtenida a través de Google. 
 Para la última tarea, se recurrió a ChatGPT para poder llevarla acabo. 
  
