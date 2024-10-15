@@ -15,4 +15,5 @@ Para que el sistema pueda realizar el cálculo de forma precisa, el usuario debe
 
 Con el factor de conversión establecido, el programa vuelve a recorrer los contornos detectados. En este proceso, convierte el diámetro de cada moneda de píxeles a milímetros utilizando el factor de conversión calculado anteriormente. Luego, compara el diámetro convertido con un conjunto de diámetros conocidos de diferentes monedas. 
 Si el diámetro de una moneda detectada coincide dentro de un margen de tolerancia establecido (0.75 mm en este caso) con alguno de los diámetros conocidos, se identifica la moneda y se suma su valor al total.
+
 Finalmente, el programa imprime en la consola el total de monedas detectadas y la cantidad total de dinero que representan. 
