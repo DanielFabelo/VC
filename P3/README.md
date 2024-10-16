@@ -17,3 +17,19 @@ Con el factor de conversión establecido, el programa vuelve a recorrer los cont
 Si el diámetro de una moneda detectada coincide dentro de un margen de tolerancia establecido (0.75 mm en este caso) con alguno de los diámetros conocidos, se identifica la moneda y se suma su valor al total.
 
 Finalmente, el programa imprime en la consola el total de monedas detectadas y la cantidad total de dinero que representan. 
+
+# Tarea 2: Clasificador de fragmentos, pellets y alquitrán
+
+El propósito de esta tarea es realizar el análisis y la clasificación de imágenes que contienen fragmentos, pellets y alquitrán.
+
+Inicialmente, se cargan las tres imágenes correspondientes a estos elementos y se convierten a espacios de color HSV para extraer las características de color y forma, y a escala de grises para la detección de contornos.
+
+En la preprocesamiento, se aplica un filtro gaussiano para reducir el ruido y luego se realiza la binarización con el método de Otsu. Después de la binarización, la imagen se modifica para eliminar pequeños ruidos mediante las funciones dilate y erode. La primera expande las áreas blancas, mientras que la segunda las reduce, permitiendo separar objetos cercanos y rellenar los espacios dentro de los contornos.
+
+A continuación, se detectan los contornos de los objetos y se dibujan en imágenes vacías.
+
+En cuanto a la extracción de características, para cada contorno se calculan la circularidad, compacidad, el promedio de los valores HSV y la relación de aspecto (aspect ratio), y se calculan las estadísticas correspondientes utilizando funciones de NumPy (mínimo, máximo y promedio).
+
+Los objetos luego se clasifican según las características extraídas, en particular la circularidad, el valor V de HSV y la relación de aspecto.
+
+Finalmente, se crean etiquetas reales y predicciones, se calculan la exactitud, precisión, recall y lo score F1, y se visualiza la matriz de confusión para comparar las predicciones con los valores reales.
