@@ -10,7 +10,7 @@ Luego, se recorre la imagen usando dos bucles anidados for, donde las variables 
 Como la imagen de fondo ya es negra, se rellenan solo los cuadrados de color blanco.
 
 Finalmente, la imagen generada se visualiza utilizando la función imshow() de la biblioteca matplotlib. 
-
+![alt text](image.png)
 
 # Tarea 2: Crear una imagen estilo Mondrian
 Se crea una imagen de 350x350 píxeles que simule el estilo arístico de Mondrian.
@@ -21,6 +21,7 @@ Se pueden encontrar en la parte superior rectángulos rojos y azul, y uno a la d
 Por otro lado, encontramos rectángulos amarillos, cian, magenta y verde en la parte inferior. 
 
 Para mostrar la imagen, se ha utilizado la función imshow() de matplotlib, que permite visualizar la composición generada. Además, se ha ocultado la visualización de los ejes utilizando axis('off').
+![alt text](image-1.png)
 
 # Tarea 3: Resuelve una de las tareas previas (a elegir) con las funciones de dibujo de OpenCV
 Para esta tarea, se ha elegido la creación de la imagen estilo Mondrian.
