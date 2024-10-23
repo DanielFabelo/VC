@@ -21,6 +21,7 @@ Se pueden encontrar en la parte superior rectángulos rojos y azul, y uno a la d
 Por otro lado, encontramos rectángulos amarillos, cian, magenta y verde en la parte inferior. 
 
 Para mostrar la imagen, se ha utilizado la función imshow() de matplotlib, que permite visualizar la composición generada. Además, se ha ocultado la visualización de los ejes utilizando axis('off').
+
 ![alt text](image-1.png)
 
 # Tarea 3: Resuelve una de las tareas previas (a elegir) con las funciones de dibujo de OpenCV
