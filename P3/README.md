@@ -9,16 +9,18 @@ Al iniciar el programa, primero se carga una imagen de monedas desde el disco. E
 Para mejorar la calidad de la imagen y reducir el ruido que podría interferir en la detección, se aplica un desenfoque gaussiano. Este método suaviza la imagen, permitiendo que los contornos de las monedas se definan con mayor claridad. 
 Después de esto, se utiliza una técnica de umbralización, específicamente el método de Otsu. Gracias a esto, las áreas que representan las monedas se convierten en blancas, mientras que el fondo se convierte en negro, facilitando la identificación de los contornos de las monedas.
 
-<img src="img1.png" alt="Immagine" width="300"/>
-
 El siguiente paso es detectar los contornos de los objetos presentes. La función findContours es la encargada de esto, y devuelve una lista de los contornos encontrados en la imagen. Estos contornos se recorren para calcular el área de cada uno. Si un contorno tiene un área superior a un umbral específico (en este caso, 10 píxeles), se considera que representa una moneda. 
 Se calcula el diámetro de cada moneda utilizando la función minEnclosingCircle, que determina el círculo más pequeño que puede encerrar el contorno detectado.
 Para que el sistema pueda realizar el cálculo de forma precisa, el usuario debe seleccionar una moneda de 2€ de referencia haciendo clic sobre ella en la imagen. Esto permite establecer un factor de conversión entre los píxeles (medida utilizada en la imagen) y los milímetros (medida real). 
+
+![alt text](/P3/images/monedasinicio.png)
 
 Con el factor de conversión establecido, el programa vuelve a recorrer los contornos detectados. En este proceso, convierte el diámetro de cada moneda de píxeles a milímetros utilizando el factor de conversión calculado anteriormente. Luego, compara el diámetro convertido con un conjunto de diámetros conocidos de diferentes monedas. 
 Si el diámetro de una moneda detectada coincide dentro de un margen de tolerancia establecido (0.75 mm en este caso) con alguno de los diámetros conocidos, se identifica la moneda y se suma su valor al total.
 
 Finalmente, el programa imprime en la consola el total de monedas detectadas y la cantidad total de dinero que representan. 
+
+![alt text](/P3/images/resultados.png)
 
 # Tarea 2: Clasificador de fragmentos, pellets y alquitrán
 
@@ -30,8 +32,21 @@ En la preprocesamiento, se aplica un filtro gaussiano para reducir el ruido y lu
 
 A continuación, se detectan los contornos de los objetos y se dibujan en imágenes vacías.
 
+![alt text](/P3/images/contornos.png)
+
 En cuanto a la extracción de características, para cada contorno se calculan la circularidad, compacidad, el promedio de los valores HSV y la relación de aspecto (aspect ratio), y se calculan las estadísticas correspondientes utilizando funciones de NumPy (mínimo, máximo y promedio).
 
 Los objetos luego se clasifican según las características extraídas, en particular la circularidad, el valor V de HSV y la relación de aspecto.
 
 Finalmente, se crean etiquetas reales y predicciones, se calculan la exactitud, precisión, recall y lo score F1, y se visualiza la matriz de confusión para comparar las predicciones con los valores reales.
+
+![alt text](/P3/images/matrix.png)
+![alt text](/P3/images/results.png)
+
+
+# Referencias y Fuentes Utilizadas
+El código base utilizado en el desarrollo de las tareas fue proporcionado a través del Moodle de la asignatura Visión por Computador. Este código sirvió como punto de partida para implementar las soluciones propuestas en las distintas tareas.
+
+En cuanto a las imágenes utilizadas en las monedas, fueron obtenidas mediante una búsqueda en Google.
+
+Finalmente, para las casuísticas de la conversión de píxeles a milímetros y la relación y los eventos del ratón se buscó información y referencias a través de ChatGPT, donde se consultaron y adaptaron ideas y soluciones que ayudaron a conseguir resultados exitosos.
