@@ -10,7 +10,7 @@ Luego, se recorre la imagen usando dos bucles anidados for, donde las variables 
 Como la imagen de fondo ya es negra, se rellenan solo los cuadrados de color blanco.
 
 Finalmente, la imagen generada se visualiza utilizando la función imshow() de la biblioteca matplotlib. 
-![alt text](image.png)
+![alt text](/P1/images/image.png)
 
 # Tarea 2: Crear una imagen estilo Mondrian
 Se crea una imagen de 350x350 píxeles que simule el estilo arístico de Mondrian.
@@ -22,7 +22,7 @@ Por otro lado, encontramos rectángulos amarillos, cian, magenta y verde en la p
 
 Para mostrar la imagen, se ha utilizado la función imshow() de matplotlib, que permite visualizar la composición generada. Además, se ha ocultado la visualización de los ejes utilizando axis('off').
 
-![alt text](image-1.png)
+![alt text](P1/images/image-1.png)
 
 # Tarea 3: Resuelve una de las tareas previas (a elegir) con las funciones de dibujo de OpenCV
 Para esta tarea, se ha elegido la creación de la imagen estilo Mondrian.
@@ -33,6 +33,8 @@ Posteriormente, se emplea cv2.rectangle() para dibujar rectángulos de colores e
 El dibujo resultante es una copia del de la tarea anterior. 
 
 Finalmente, se visualiza utilizando matplotlib con la función imshow(). Además, se ocultan los ejes con axis('off') y se guarda la imagen generada en el disco duro en fornmato JPEG mediante la función cv2.imwrite().
+
+![alt text](P1/images/image-1.png)
 
 # Tarea 4: Modificar de forma libre los valores de un plano de la imagen
 Se captura la imagen en tiempo real desde la webcam, y se aplican modificaciones creativas a los diferentes planos. Se utiliza la librería OpenCV para la captura de video y el procesamiento de imágenes, junto con numpy para las operaciones en los planos de color.
@@ -48,6 +50,8 @@ El fotograma se captura utilizando vid.read(), se separan los tres canales de co
 Los tres planos modificados se concatenan horizontalmente usando np.hstack(), formando una imagen que muestra las tres variaciones del mismo fotograma en paralelo. Posteriormente, la imagen resultante se redimensiona a la mitad de su altura y se multiplica por 1.5 en el ancho para asegurar que quepa en la pantalla. La función cv2.imshow() se utiliza para visualizar este collage en una ventana.
 El bucle de captura de video continúa ejecutándose hasta que el usuario presiona la tecla "ESC", lo que detiene el programa y libera la cámara mediante vid.release(), además de cerrar las ventanas abiertas con cv2.destroyAllWindows().
 
+![alt text](P1/images/task4.png)
+
 # Tarea 5: Pintar círculos en las posiciones del píxel más claro y oscuro de la imagen
 En esta tarea, se carga una imagen en color, se convierte a escala de grises y se identifican los píxeles más claro y más oscuro de la imagen. Posteriormente, se dibujan círculos sobre la imagen original en las posiciones de estos píxeles.
 
@@ -57,6 +61,8 @@ La función cv2.minMaxLoc() es la encargada de encontrar el valor mínimo y máx
 Una vez identificadas las coordenadas, se utilizan las funciones de dibujo de OpenCV. Para marcar el píxel más claro, se dibuja un círculo de color rojo sobre la imagen en la coordenada almacenada en coordenada_clara. De manera similar, para el píxel más oscuro, se dibuja un círculo verde en la posición coordenada_oscura.
 
 Finalmente, para mostrar la imagen con los círculos, se utiliza matplotlib. Como OpenCV maneja las imágenes en formato BGR, es necesario convertir la imagen de BGR a RGB antes de visualizarla, lo cual se realiza con la función cv2.cvtColor().
+
+![alt text](P1/images/task5.png)
 
 # Tarea 6: Propuesta propia de pop art utilizando la cámara web
 En esta tarea, se captura la imagen desde la webcam y se crea una composición visual que recuerda al estilo "Pop Art". Esta composición consta de una matriz de 2x2 imágenes, donde cada una de las cuatro partes aplica una transformación diferente sobre el mismo fotograma capturado.
@@ -76,6 +82,8 @@ Se aplican las siguientes transformaciones de color:
 
 El resultado de todas estas transformaciones se muestra en tiempo real en una ventana con la función cv2.imshow(). La ventana muestra las cuatro versiones modificadas del mismo fotograma simultáneamente, creando una composición característica del arte pop.
 El bucle se ejecuta hasta que el usuario presiona la tecla "ESC", momento en el cual se detiene la captura de video y se cierran todas las ventanas abiertas con cv2.destroyAllWindows().
+
+![alt text](P1/images/task6.png)
 
 # Referencias y Fuentes Utilizadas
 El código base utilizado en el desarrollo de las tareas fue proporcionado a través del Moodle de la asignatura Visión por Computador. Este código sirvió como punto de partida para implementar las soluciones propuestas en las distintas tareas.
