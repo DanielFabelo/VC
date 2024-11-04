@@ -9,9 +9,7 @@ Al iniciar el programa, primero se carga una imagen de monedas desde el disco. E
 Para mejorar la calidad de la imagen y reducir el ruido que podría interferir en la detección, se aplica un desenfoque gaussiano. Este método suaviza la imagen, permitiendo que los contornos de las monedas se definan con mayor claridad. 
 Después de esto, se utiliza una técnica de umbralización, específicamente el método de Otsu. Gracias a esto, las áreas que representan las monedas se convierten en blancas, mientras que el fondo se convierte en negro, facilitando la identificación de los contornos de las monedas.
 
-<img src="img1.png" alt="Immagine" width="100"/>
-
-![alt text](img1.png){: width="100"}
+<img src="img1.png" alt="Immagine" width="300"/>
 
 El siguiente paso es detectar los contornos de los objetos presentes. La función findContours es la encargada de esto, y devuelve una lista de los contornos encontrados en la imagen. Estos contornos se recorren para calcular el área de cada uno. Si un contorno tiene un área superior a un umbral específico (en este caso, 10 píxeles), se considera que representa una moneda. 
 Se calcula el diámetro de cada moneda utilizando la función minEnclosingCircle, que determina el círculo más pequeño que puede encerrar el contorno detectado.
