@@ -1,5 +1,5 @@
 # Autoría
-Este código ha sido desarrollado por Anixia Di Gregorio y Daniel Fabelo 
+Este programa ha sido desarrollado por Anixia Di Gregorio y Daniel Fabelo 
 
 # Detección de Matrículas, Personas y Coches en Video
 
@@ -16,3 +16,10 @@ Además de la detección por fotograma, el programa mantiene un conteo acumulati
 
 # Almacenamiento de Resultados
 El sistema genera dos salidas principales. La primera es un video anotado, output_with_detections.mp4, donde se resaltan las detecciones de personas, coches y matrículas, junto con el conteo acumulativo de objetos de cada clase. La segunda salida es un archivo CSV (detections.csv), en el cual cada fila representa una detección individual e incluye información detallada como el índice de fotograma, clase del objeto, nivel de confianza y coordenadas del rectángulo de detección. Si el objeto detectado es una matrícula, también se guarda el texto extraído de la imagen.
+
+# Referencias y Fuentes Utilizadas
+El código base utilizado en el desarrollo de las tareas fue proporcionado a través del Moodle de la asignatura Visión por Computador. Este código sirvió como punto de partida para implementar las soluciones propuestas en las distintas tareas.
+
+En cuanto al vídeo, ha sido usado el proporcionado por el profesor.
+
+Finalmente, para llevar acabo los requerimientos de la entrega, se buscó información y referencias a través de ChatGPT, donde se consultaron y adaptaron ideas y soluciones que ayudaron a implementar dichas funcionalidades.
