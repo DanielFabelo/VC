@@ -34,6 +34,18 @@ Cada fotograma del video se procesa con dos modelos YOLO. Primero, model1 identi
 
 Además de la detección por fotograma, el programa mantiene un conteo acumulativo de las personas y coches detectados a lo largo del video. Esta información se muestra en el video para que el usuario vea el total de objetos detectados de cada clase durante toda la ejecución.
 
+```
+# Recortar la imagen de la matrícula y procesarla para OCR
+plate_image = img[y1:y2, x1:x2]
+gray = cv2.cvtColor(plate_image, cv2.COLOR_BGR2GRAY)
+clahe = cv2.createCLAHE(clipLimit=4.0, tileGridSize=(8, 8))
+contrast_img = clahe.apply(gray)
+resized_img = cv2.resize(contrast_img, None, fx=2, fy=2, interpolation=cv2.INTER_LINEAR)
+kernel = np.array([[0, -2, 0], [-2, 9, -2], [0, -2, 0]])
+sharpened_img = cv2.filter2D(resized_img, -1, kernel)
+text = pytesseract.image_to_string(sharpened_img, config='--psm 8', output_type=Output.STRING).strip()
+```
+
 # Almacenamiento de Resultados
 El sistema genera dos salidas principales. La primera es un video anotado, output_with_detections.mp4, donde se resaltan las detecciones de personas, coches y matrículas, junto con el conteo acumulativo de objetos de cada clase. La segunda salida es un archivo CSV (detections.csv), en el cual cada fila representa una detección individual e incluye información detallada como el índice de fotograma, clase del objeto, nivel de confianza y coordenadas del rectángulo de detección. Si el objeto detectado es una matrícula, también se guarda el texto extraído de la imagen.
 
