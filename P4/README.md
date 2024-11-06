@@ -9,9 +9,9 @@ Este proyecto implementa un sistema de detección en video para identificar matr
 Inicialmente se entrenó el modelo yolo11n.pt con el conjunto de datos https://universe.roboflow.com/projectyolo-qvrgr/license-plate-detection-1v7hv, para el reconocimiento de matrículas. En particular, se entrenó durante 50 épocas, y a continuación es posible ver los resultados del entrenamiento:
 
 <p align="center">
-  <img src="P4/images/F1_curve_tarea4.png" alt="F1-Confidence Curve" width="30%">
-  <img src="P4/images/precision_curve_tarea4.png" alt="Precision-Recall Curve" width="30%">
-  <img src="P4/images/confusionMatrix_tarea4.png" alt="Confusion Matrix" width="30%">
+  <img src="images/F1_curve_tarea4.png" alt="F1-Confidence Curve" width="30%">
+  <img src="images/precision_curve_tarea4.png" alt="Precision-Recall Curve" width="30%">
+  <img src="images/confusionMatrix_tarea4.png" alt="Confusion Matrix" width="30%">
 </p>
 
 # Uso del código
