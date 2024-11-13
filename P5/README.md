@@ -46,8 +46,6 @@ Desventajas:
 
 El segundo enfoque utiliza el algoritmo Haar Cascade de OpenCV para detectar rostros, mientras que DeepFace se utiliza para la detección de género.
 
-La carga de los filtros se realiza de la misma manera que en el código 1.
-
 ### Análisis de género
 ```
 resized_frame = cv2.resize(frame, (640, 480))
