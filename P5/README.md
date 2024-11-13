@@ -77,26 +77,55 @@ Desventajas:
 
 ## Código 3: MediaPipe
 
-El último enfoque utiliza MediaPipe para la detección de rostros. Esto permite obtener un buen equilibrio entre rendimiento y precisión.
+Este enfoque utiliza MediaPipe para la detección y mapeo de landmarks faciales, junto con DeepFace para el análisis de género. Con esta combinación, el código no solo detecta rostros, sino que también ubica puntos específicos en la cara, como los labios y las esquinas de la boca. Esto permite aplicar efectos de manera precisa.
 
-### Detección de rostros
+Ahora a los hombres se les pintará los labios directamente, en lugar de superponer una imagen.
+
+Para ejecutar esta versión, será necesario instalar mediapipe en nuestro environment. Se puede hacer mediante la siguiente orden:
+```
+pip install mediapipe
+
+```
+
+### Detección de rostros y Aplicación de filtros
 ```
 frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-results = face_detection.process(frame_rgb)
+results = face_mesh.process(frame_rgb)
 
-if results.detections:
-    for detection in results.detections:
-        bboxC = detection.location_data.relative_bounding_box
+if results.multi_face_landmarks:
+    for face_landmarks in results.multi_face_landmarks:
         ih, iw, _ = frame.shape
-        x, y, w, h = int(bboxC.xmin * iw), int(bboxC.ymin * ih), int(bboxC.width * iw), int(bboxC.height * ih)
 
-        # Applica il filtro in base al genere rilevato
-        if gender == 'Man' and lipstick_image is not None:
-            overlay_img = cv2.resize(lipstick_image, (w // 2, h // 5))
-            frame = overlay_image(frame, overlay_img, (x + w // 4, y + int(h * 0.6)))
+        if gender == 'Man':
+            # Pintar labios de rojo utilizando landmarks
+            lip_points = [
+                61, 146, 91, 181, 84, 17, 314, 405, 321, 375, 291, 308,
+                324, 318, 402, 317, 14, 87, 178,  95, 88, 178, 191, 80,
+                81, 82, 13, 312, 311, 310, 415, 308
+            ]
+            lip_coords = [(int(face_landmarks.landmark[point].x * iw), int(face_landmarks.landmark[point].y * ih)) for point in lip_points]
+            
+            # Crear y aplicar una máscara roja sobre los labios
+            lip_mask = np.zeros_like(frame)
+            cv2.fillPoly(lip_mask, [np.array(lip_coords, np.int32)], (0, 0, 255))
+            frame = cv2.addWeighted(frame, 1, lip_mask, 0.4, 0)
+
         elif gender == 'Woman' and mustache_image is not None:
-            overlay_img = cv2.resize(mustache_image, (w // 2, h // 6))
-            frame = overlay_image(frame, overlay_img, (x + w // 4, y + int(h * 0.55)))
+            # Colocar el bigote sobre la boca utilizando puntos clave
+            left_mouth_corner = face_landmarks.landmark[78]
+            right_mouth_corner = face_landmarks.landmark[308]
+
+            # Ajustar tamaño y posición del bigote
+            x1, y1 = int(left_mouth_corner.x * iw), int(left_mouth_corner.y * ih)
+            x2, y2 = int(right_mouth_corner.x * iw), int(right_mouth_corner.y * ih)
+            mustache_width = x2 - x1
+            mustache_height = int(mustache_width * mustache_image.shape[0] / mustache_image.shape[1])
+            overlay_img = cv2.resize(mustache_image, (mustache_width, mustache_height))
+            
+            # Colocar el bigote en la posición calculada
+            y_offset = int(y1 - mustache_height / 2)
+            frame = overlay_image(frame, overlay_img, (x1, y_offset))
+
 ```
 
 ### Ventajas e Desventajas
@@ -116,3 +145,6 @@ Para concluir, podemos decir que cada uno de estos algoritmos puede ser útil de
 * Haar Cascade es adecuado para aplicaciones rápidas en dispositivos menos potentes, pero con una mayor tolerancia a los errores. 
 * MediaPipe representa un compromiso entre las dos soluciones, adecuado para escenarios donde se necesita un buen equilibrio entre precisión y velocidad.
 
+## Referencias
+
+Para la ejecución de esta práctica, se ha usado el código de base proporcionado por los profesores y se ha empleado ChatGPT para aclarar las cuestiones relacionadas con mediapipe.
