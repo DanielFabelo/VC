@@ -106,6 +106,9 @@ Ventajas:
 Desventajas: 
 * Más ligero que el primer enfoque, pero menos preciso en algunas circunstancias.
 
+## Resultado
+<video controls src="images/resultado_gif.mp4" title="Title"></video>
+
 ## Conclusiones
 
 Para concluir, podemos decir que cada uno de estos algoritmos puede ser útil dependiendo de los recursos disponibles y las necesidades específicas, en particular: 
