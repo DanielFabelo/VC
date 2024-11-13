@@ -107,7 +107,7 @@ Desventajas:
 * Más ligero que el primer enfoque, pero menos preciso en algunas circunstancias.
 
 ## Resultado
-![Resultado](./images/demo.gif)
+![Resultado](images/resultado_gif.gif)
 
 ## Conclusiones
 
